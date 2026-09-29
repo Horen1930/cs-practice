@@ -18,7 +18,8 @@ for _ in range(n):
     cnt += 1
     summ += t
 
-    maxx = max(maxx, t)
+    if maxx < t:
+        maxx = t
 
     if t > top:
          cnt_top += 1
