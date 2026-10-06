@@ -1,4 +1,4 @@
-def winner(scores):
+def winner(names, scores):
   top = 0
   maxx = -10**10
   for i in range(len(scores)):
@@ -18,7 +18,7 @@ def average(scores):
   return summ / len(scores)
 
 
-def ranking(scores, names):
+def ranking(names, scores):
   nm = names.copy()
   return sorted(nm, key=lambda n: -scores[names.index(n)])
 
