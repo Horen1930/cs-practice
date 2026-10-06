@@ -9,7 +9,7 @@ def winner(scores):
 
 def average(scores):
   if len(scores) = 0:
-    return 0
+    return 0.0
 
   summ = 0
   for n in scores:
@@ -17,6 +17,13 @@ def average(scores):
   
   return summ / len(scores)
 
+
+def ranking(scores, names):
+  nm = names.copy()
+  return sorted(nm, key=lambda n: -scores[names.index(n)])
+
+  
+  
 
 
 names = list(input())
