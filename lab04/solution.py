@@ -24,7 +24,7 @@ def ranking(names, scores):
     )
     return [names[i] for i in indices]
 
-  
+
 def above_average(names, scores):
     nm = []
     avr = average(scores)
@@ -33,3 +33,6 @@ def above_average(names, scores):
         if scores[i] > avr:
             nm.append(names[i])
     return nm
+
+if __name__ == "__main__":
+    print(winner(['tom', 'jery'], [1, 5]))
