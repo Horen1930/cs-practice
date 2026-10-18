@@ -1,7 +1,7 @@
 from tablestats import *
 
 def main():
-    path = input("введите путь к csv файлу: ")
+    path = input()
 
     with open(path, encoding="utf-8") as table:
         rows = read_rows(table)
@@ -11,11 +11,11 @@ def main():
         out.write(to_csv(count_types(rows)))
 
 
-    counts = len(rows)
+    count = len(rows)
     types = len(count_types(rows))
     time_error = total_minutes(rows, 'ошибка')
 
-    return f"{counts}\n{types}\n{time_error}"
+    return f"{count}\n{types}\n{time_error}"
 
 
 if __name__ == "__main__":
