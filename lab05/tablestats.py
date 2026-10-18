@@ -15,11 +15,10 @@ def read_rows(lines : list[str]) -> list[dict]:
         if len(values) != len(header):
             continue
 
-        l.append({
-            header[0]: values[0].strip(),
-            header[1]: values[1].strip(),
-            header[2]: values[2].strip()
-        })
+        row = {}
+        for i in range(len(header)):
+            row[header[i].strip()] = values[i].strip()
+        l.append(row)
 
     return l
 
@@ -36,12 +35,15 @@ def count_types(rows : list[dict]) -> dict:
     return d
 
 
-def total_minutes(rows : list[dict], kind : str) -> int:
-    time = 0
+def total_minutes(rows : list[dict], kind : str) -> float:
+    time = 0.0
 
     for row in rows:
         if row['тип'] == kind:
-            time += float(row['минуты'])
+            try:
+                time += float(row['минуты'].replace(',', '.'))
+            except ValueError:
+                continue
     
     return round(time, 1)
 
