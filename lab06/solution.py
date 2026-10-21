@@ -13,20 +13,20 @@ def count_items(values):
 def unique_sorted(values):
     d = set()
 
-    for value in sorted(values):
+    for value in values:
         d.add(value)
 
-    return list(d)
+    return sorted(list(d))
 
 
 def common(first, second):
     d = set()
 
-    for value in sorted(max(first, second, key=len)):
-        if value in min(first, second, key=len):
+    for value in first:
+        if value in second:
             d.add(value)
 
-    return list(d)
+    return sorted(list(d))
 
 
 def only_in_first(first, second):
