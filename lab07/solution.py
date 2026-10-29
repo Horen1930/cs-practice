@@ -17,6 +17,7 @@ def block(matrix, rows, columns):
     selected = array[np.ix_(rows, columns)]
     return selected.round(6).tolist()
 
+
 def column_means(matrix):
     if not matrix:
         return []
@@ -24,3 +25,13 @@ def column_means(matrix):
     array = np.asarray(matrix, dtype=float)
     means = np.mean(array, axis=0)
     return means.round(6).tolist()
+
+
+def column_range(matrix, column):
+    if not matrix:
+        return 0.0
+
+    array = np.asarray(matrix, dtype=float)
+    values = array[: , column]
+    res = values.max() - values.min()
+    return round(float(res), 6)
